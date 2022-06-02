@@ -1,4 +1,4 @@
-# AiroComp
+# AIRO Component API
 
 NPM REQ 
 Express
