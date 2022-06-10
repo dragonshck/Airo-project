@@ -8,7 +8,7 @@ def health_check():
 
 @app.route("/personalize", methods = ["POST"])
 def get_personalization():
-    request_json = request.json
+    request_json = request.form.to_dict()
     argument_input = request_json.get('message')
     print("message: ", argument_input)
     result = kata_unused(argument_input)
