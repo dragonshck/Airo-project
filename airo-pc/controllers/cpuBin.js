@@ -68,7 +68,7 @@ export const kuliCPU = (req, res) => {
 
 //Retrieve entry level CPU
 export const entryLevelCPU = (req, res) => {
-  const qcpuentry = "SELECT * FROM `cpudata WHERE price BETWEEN 500000 AND 3000000";
+  const qcpuentry = "SELECT * FROM `cpudata` WHERE price BETWEEN 500000 AND 3000000";
   pool.query(qcpuentry, (error, result) => {
     if (!result) {
       res.json({ status: "Not found!"});
@@ -80,7 +80,7 @@ export const entryLevelCPU = (req, res) => {
 
 //Retrieve midrange level CPU
 export const midLevelCPU = (req, res) => {
-  const qcpumid = "SELECT * FROM `cpudata WHERE price BETWEEN 3000000 AND 5000000";
+  const qcpumid = "SELECT * FROM `cpudata` WHERE price BETWEEN 3000000 AND 5000000";
   pool.query(qcpumid, (error, result) => {
     if (!result) {
       res.json({ status: "Not found!"});
@@ -92,7 +92,7 @@ export const midLevelCPU = (req, res) => {
 
 //Retrieve high-end level CPU
 export const highEndCPU = (req, res) => {
-  const qcpumid = "SELECT * FROM `cpudata WHERE price BETWEEN 5000000 AND 10000000";
+  const qcpumid = "SELECT * FROM `cpudata` WHERE price BETWEEN 5000000 AND 10000000";
   pool.query(qcpumid, (error, result) => {
     if (!result) {
       res.json({ status: "Not found!"});
@@ -110,15 +110,12 @@ export const inputCPU = (req, res) => {
     name: req.body.name,
     price_idr: req.body.price_idr,
     brand: req.body.brand,
-    tdp: req.body.tdp,
-    core_clock: req.body.core_clock,
-    core_count: req.body.core_count,
     is_gaming: req.body.is_gaming,
     image_url: req.body.image_url,
     description: req.body.description,
   }
 
-  const query = "INSERT INTO cpudata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+  const query = "INSERT INTO `cpudata` VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
   pool.query(query, Object.values(data), error => {
     if (error) {
       res.json({ status: "fail", reason: error.code});
