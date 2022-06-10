@@ -34,12 +34,12 @@ let connection = mysql.createConnection(config);
 //   password: process.env.DB_PASS
 // });
 
-  connection.connect(function(err) {
-    if (err) {
-      console.error('Error connecting: ' + err.stack);
-      return;
-    }
-    console.log('Connected as thread id: ' + connection.threadId);
-  });
+//   connection.connect(function(err) {
+//     if (err) {
+//       console.error('Error connecting: ' + err.stack);
+//       return;
+//     }
+//     console.log('Connected as thread id: ' + connection.threadId);
+//   });
 
 export default connection;

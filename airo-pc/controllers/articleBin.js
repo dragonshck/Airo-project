@@ -32,10 +32,11 @@ export const inputArticle = (req, res) => {
       article_id: req.body.article_id,
       image_url: req.body.image_url,
       title: req.body.title,
-      content: req.body.content
+      content: req.body.content,
+      article_url: req.body.article_url
     }
   
-    const query = "INSERT INTO `article` VALUES (?, ?, ?, ?)";
+    const query = "INSERT INTO `article` VALUES (?, ?, ?, ?, ?)";
     pool.query(query, Object.values(data), error => {
       if (error) {
         res.json({ status: "fail", reason: error.code});

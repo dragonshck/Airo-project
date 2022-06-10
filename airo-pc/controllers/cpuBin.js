@@ -2,7 +2,7 @@
 
 import pool from '../connection/connect-tcp.js';
 
-//Retrieve all CPU Data
+//Retrieve all Product Data
 export const allcpu = async (req, res) => {
     const qcpu = "SELECT * FROM `cpudata`";
     pool.query(qcpu, (error, result) => {
@@ -14,7 +14,7 @@ export const allcpu = async (req, res) => {
     });
 }
 
-//Retrieve CPU by ID
+//Retrieve Product by ID
 export const cpuid = async (req, res) => {
   const qcpuid = "SELECT * FROM `cpudata` WHERE `id` = ?";
     pool.query(qcpuid, [req.params.id], (error, result) => {
@@ -26,7 +26,7 @@ export const cpuid = async (req, res) => {
     });
 }
 
-//Retrieve CPU by Manufacturer
+//Retrieve Product by Manufacturer
 export const cpumanufacturer = (req, res) => {
   const qcpubrand = "SELECT * FROM `cpudata` WHERE `brand` = ?";
     pool.query(qcpubrand, [req.params.brand], (error, result) => {
@@ -38,7 +38,19 @@ export const cpumanufacturer = (req, res) => {
     });
 }
 
-//Retrieve gamer certified CPU lul
+//Retrieve Product by Type/Model
+export const getProductByType = (req, res) => {
+  const qproductmodel = "SELECT * FROM `cpudata` WHERE `model` = ?";
+  pool.query(qproductmodel, [req.params.model], (error, result) => {
+    if (!result) {
+      res.json({ status: "Not found!"});
+    } else {
+      res.json(result);
+    }
+  });
+}
+
+//Retrieve gamer certified Product lul
 export const gamerCPU = (req, res) => {
   const qcpugaming = "SELECT * FROM `cpudata` WHERE `is_gaming` = true";
     pool.query(qcpugaming, (error, result) => {
@@ -50,7 +62,7 @@ export const gamerCPU = (req, res) => {
     });
 }
 
-//Retrieve kuli certified CPU
+//Retrieve kuli certified Product
 export const kuliCPU = (req, res) => {
   const qcpunotgaming = "SELECT * FROM `cpudata` WHERE `is_gaming` = false";
   pool.query(qcpunotgaming, (error, result) => {
@@ -62,7 +74,7 @@ export const kuliCPU = (req, res) => {
   });
 }
 
-//Retrieve entry level CPU
+//Retrieve entry level Product
 export const entryLevelCPU = (req, res) => {
   const qcpuentry = "SELECT * FROM `cpudata` WHERE price BETWEEN 500000 AND 3000000";
   pool.query(qcpuentry, (error, result) => {
@@ -74,7 +86,7 @@ export const entryLevelCPU = (req, res) => {
   });
 }
 
-//Retrieve midrange level CPU
+//Retrieve midrange level Product
 export const midLevelCPU = (req, res) => {
   const qcpumid = "SELECT * FROM `cpudata` WHERE price BETWEEN 3000000 AND 5000000";
   pool.query(qcpumid, (error, result) => {
@@ -86,7 +98,7 @@ export const midLevelCPU = (req, res) => {
   });
 }
 
-//Retrieve high-end level CPU
+//Retrieve high-end level Product
 export const highEndCPU = (req, res) => {
   const qcpumid = "SELECT * FROM `cpudata` WHERE price BETWEEN 5000000 AND 10000000";
   pool.query(qcpumid, (error, result) => {
@@ -98,7 +110,7 @@ export const highEndCPU = (req, res) => {
   });
 }
 
-//Input CPU Data to CPU
+//Input Product Data to Database
 export const inputCPU = (req, res) => {
   const data = {
     id: req.body.id,
@@ -121,12 +133,12 @@ export const inputCPU = (req, res) => {
   });
 }
 
-//Update CPU Data
+//Update Product Data
 export const updateCPU = (req, res) => {
   
 }
 
-//Delete CPU Data
+//Delete Product Data
 export const deleteCPU = (req, res) => {
 
 }
