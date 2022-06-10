@@ -5,26 +5,34 @@ import {} from 'dotenv/config';
 
 // Database Connection for Production
 
-// let config = {
-//     user: process.env.DB_USER,
-//     database: process.env.DB_NAME,
-//     password: process.env.DB_PASSWORD,
-// }
+var config = {
+  user: process.env.DB_USER,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASS,
+};
 
-// if (process.env.INSTANCE_CONNECTION_NAME && process.env.NODE_ENV === 'production') {
-//   config.socketPath = `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`;
-// }
+// Later on when running from Google Cloud, env variables will be passed in container cloud connection config
+if(process.env.NODE_ENV === 'production') {
+console.log('Running from cloud. Connecting to DB through GCP socket.');
+config.socketPath = `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`;
+}
 
-// let connection = mysql.createConnection(config);
+// When running from localhost, get the config from .env
+else {
+console.log('Running from localhost. Connecting to DB directly.');
+config.host = process.env.DB_HOST;
+}
+
+let connection = mysql.createConnection(config);
 
 // Database Connection for Development
 
-let connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD
-});
+// let connection = mysql.createConnection({
+//   host: process.env.DB_HOST,
+//   user: process.env.DB_USER,
+//   database: process.env.DB_NAME,
+//   password: process.env.DB_PASS
+// });
 
   connection.connect(function(err) {
     if (err) {
