@@ -1,11 +1,15 @@
 'use strict';
 
-import connection from '../connection/connect-tcp.js';
+import pool from '../connection/connect-tcp.js';
+import express from 'express';
+import {parse, stringify} from 'flatted';
+import {} from 'dotenv/config'
+const app = express();
 
 //Retrieve all CPU Data
-export const allcpu = (req, res, next) => {
+export const allcpu = async (req, res) => {
     const qcpu = "SELECT * FROM `cpudata`";
-    connection.query(qcpu, (error, result) => {
+    pool.query(qcpu, (error, result) => {
       if (!result) {
         res.json({ status: "Not found!"});
       } else {
@@ -15,9 +19,9 @@ export const allcpu = (req, res, next) => {
 }
 
 //Retrieve CPU by ID
-export const cpuid = (req, res) => {
+export const cpuid = async (req, res) => {
   const qcpuid = "SELECT * FROM `cpudata` WHERE `id` = ?";
-    connection.query(qcpuid, [req.params.id], (error, result) => {
+    pool.query(qcpuid, [req.params.id], (error, result) => {
       if (!result[0]) {
         res.json({ status: "Not found!"});
       } else {
@@ -29,7 +33,7 @@ export const cpuid = (req, res) => {
 //Retrieve CPU by Manufacturer
 export const cpumanufacturer = (req, res) => {
   const qcpubrand = "SELECT * FROM `cpudata` WHERE `brand` = ?";
-    connection.query(qcpubrand, [req.params.brand], (error, result) => {
+    pool.query(qcpubrand, [req.params.brand], (error, result) => {
       if (!result) {
         res.json({ status: "Not found!"});
       } else {
@@ -41,7 +45,7 @@ export const cpumanufacturer = (req, res) => {
 //Retrieve gamer certified CPU lul
 export const gamerCPU = (req, res) => {
   const qcpugaming = "SELECT * FROM `cpudata` WHERE `is_gaming` = true";
-    connection.query(qcpugaming, (error, result) => {
+    pool.query(qcpugaming, (error, result) => {
       if (!result) {
         res.json({ status: "Not found!"});
       } else {
@@ -53,7 +57,7 @@ export const gamerCPU = (req, res) => {
 //Retrieve kuli certified CPU
 export const kuliCPU = (req, res) => {
   const qcpunotgaming = "SELECT * FROM `cpudata` WHERE `is_gaming` = false";
-  connection.query(qcpunotgaming, (error, result) => {
+  pool.query(qcpunotgaming, (error, result) => {
     if (!result) {
       res.json({ status: "Not found!"});
     } else {
@@ -65,7 +69,7 @@ export const kuliCPU = (req, res) => {
 //Retrieve entry level CPU
 export const entryLevelCPU = (req, res) => {
   const qcpuentry = "SELECT * FROM `cpudata WHERE price BETWEEN 500000 AND 3000000";
-  connection.query(qcpuentry, (error, result) => {
+  pool.query(qcpuentry, (error, result) => {
     if (!result) {
       res.json({ status: "Not found!"});
     } else {
@@ -77,7 +81,7 @@ export const entryLevelCPU = (req, res) => {
 //Retrieve midrange level CPU
 export const midLevelCPU = (req, res) => {
   const qcpumid = "SELECT * FROM `cpudata WHERE price BETWEEN 3000000 AND 5000000";
-  connection.query(qcpumid, (error, result) => {
+  pool.query(qcpumid, (error, result) => {
     if (!result) {
       res.json({ status: "Not found!"});
     } else {
@@ -89,7 +93,7 @@ export const midLevelCPU = (req, res) => {
 //Retrieve high-end level CPU
 export const highEndCPU = (req, res) => {
   const qcpumid = "SELECT * FROM `cpudata WHERE price BETWEEN 5000000 AND 10000000";
-  connection.query(qcpumid, (error, result) => {
+  pool.query(qcpumid, (error, result) => {
     if (!result) {
       res.json({ status: "Not found!"});
     } else {
@@ -101,6 +105,7 @@ export const highEndCPU = (req, res) => {
 //Input CPU Data to CPU
 export const inputCPU = (req, res) => {
   const data = {
+    id: req.body.id,
     model: req.body.model,
     name: req.body.name,
     price_idr: req.body.price_idr,
@@ -113,8 +118,8 @@ export const inputCPU = (req, res) => {
     description: req.body.description,
   }
 
-  const query = "INSERT INTO cpudata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-  connection.query(query, Object.values(data), error => {
+  const query = "INSERT INTO cpudata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+  pool.query(query, Object.values(data), error => {
     if (error) {
       res.json({ status: "fail", reason: error.code});
     } else {
@@ -125,7 +130,7 @@ export const inputCPU = (req, res) => {
 
 //Update CPU Data
 export const updateCPU = (req, res) => {
-
+  
 }
 
 //Delete CPU Data
