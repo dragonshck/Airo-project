@@ -1,10 +1,6 @@
 'use strict';
 
 import pool from '../connection/connect-tcp.js';
-import express from 'express';
-import {parse, stringify} from 'flatted';
-import {} from 'dotenv/config'
-const app = express();
 
 //Retrieve all CPU Data
 export const allcpu = async (req, res) => {

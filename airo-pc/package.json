@@ -5,17 +5,14 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "nodemon app.js"
+    "start": "nodemon app.js"
   },
   "author": "Specter",
   "license": "ISC",
   "dependencies": {
-    "@google-cloud/secret-manager": "^4.0.0",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "flatted": "^3.2.5",
-    "fs": "^0.0.1-security",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.16",
-    "promise-mysql": "^5.2.0"
+    "nodemon": "^2.0.16"
   }
 }

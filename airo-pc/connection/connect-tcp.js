@@ -1,7 +1,7 @@
 'use strict';
 
 import mysql from 'mysql';
-import {} from 'dotenv/config'
+import {} from 'dotenv';
 
 // Database Connection for Production
 
