@@ -17,7 +17,7 @@ export const allarticle = async (req, res) => {
 //Retrieve article by ID
 export const articleid = async (req, res) => {
   const qarticleid = "SELECT * FROM `article` WHERE `article_id` = ?";
-    pool.query(qarticleid, [req.params.article_id], (error, result) => {
+    pool.query(qarticleid, [req.params.id], (error, result) => {
       if (!result[0]) {
         res.json({ status: "Not found!"});
       } else {
