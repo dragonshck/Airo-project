@@ -135,10 +135,25 @@ export const inputCPU = (req, res) => {
 
 //Update Product Data
 export const updateCPU = (req, res) => {
-  
+  const data = [req.body.model, req.body.name, req.body.price_idr, req.body.brand, req.body.is_gaming, req.body.image_url, req.body.description, req.params.id] 
+  //let qcpuupdate = "UPDATE cpudata SET model = ?, name = ? ,price_idr = ? ,brand= ?,is_gaming = ? ,image_url = ?, description = ? WHERE id = ?";
+  pool.query("UPDATE cpudata SET model = ?, name = ? ,price_idr = ? ,brand= ?,is_gaming = ? ,image_url = ?, description = ? WHERE id = ?", data, (err, result) => {
+    if (err) {
+      res.send('Error')
+    } else {
+      res.send(result);
+    }
+  });
 }
 
 //Delete Product Data
 export const deleteCPU = (req, res) => {
-
+  const qcpudelete = "DELETE FROM `cpudata` WHERE `id` = ?";
+  pool.query(qcpudelete, [req.params.id], (error, result) => {
+    if (!result) {
+      res.json({ status: "Not found!"});
+    } else {
+      res.json({status: "Data Deleted",result});
+    }
+  });
 }
