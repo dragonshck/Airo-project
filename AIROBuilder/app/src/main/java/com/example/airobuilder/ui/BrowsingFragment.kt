@@ -61,7 +61,7 @@ class BrowsingFragment : Fragment() {
         searchView.apply {
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
-                    browsingViewModel.findComponent(query ?: "")
+                    browsingViewModel.findByModels(query ?: "")
                     clearFocus()
                     return true
                 }

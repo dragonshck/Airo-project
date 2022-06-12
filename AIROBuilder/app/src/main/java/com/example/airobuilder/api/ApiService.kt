@@ -18,6 +18,11 @@ interface ApiService {
         @Path("component") component: String
     ): ArrayList<SimpleComponent>
 
+    @GET("pc/model/{model}")
+    suspend fun searchByModels(
+        @Path("model") model: String
+    ): ArrayList<SimpleComponent>
+
     @GET("pc/{id}")
     suspend fun getDetailComponent(
         @Path("id") id: Int

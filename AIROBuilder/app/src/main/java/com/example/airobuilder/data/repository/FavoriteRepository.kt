@@ -61,11 +61,11 @@ class FavoriteRepository private constructor(private val apiService: ApiService,
         }
     }
 
-    fun findComponent(query: String): Flow<ResultResponse<ArrayList<SimpleComponent>>> = flow {
+    fun findByModel(query: String): Flow<ResultResponse<ArrayList<SimpleComponent>>> = flow {
         emit(ResultResponse.Loading)
 
         try {
-            val component = apiService.searchName(query)
+            val component = apiService.searchByModels(query)
             emit(ResultResponse.Success(component))
         } catch (e: Exception) {
             Log.d(TAG, e.message.toString())

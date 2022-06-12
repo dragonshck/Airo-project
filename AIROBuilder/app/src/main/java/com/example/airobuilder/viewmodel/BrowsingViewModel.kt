@@ -17,10 +17,10 @@ class BrowsingViewModel(private val favoriteRepository: FavoriteRepository) : Vi
     private val _isLoading = MutableStateFlow(false)
     val isLoading = _isLoading.asStateFlow()
 
-    fun findComponent(query: String) {
+    fun findByModels(query: String) {
         _component.value = ResultResponse.Loading
         viewModelScope.launch {
-            favoriteRepository.findComponent(query).collect {
+            favoriteRepository.findByModel(query).collect {
                 _component.value = it
             }
         }
