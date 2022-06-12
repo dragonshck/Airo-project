@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">AIRO Builder</string>
+    <string name="home">Beranda</string>
+    <string name="personalize">Personalize</string>
+    <string name="browsing">Browsing</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="article">Artikel</string>
+    <string name="article_image">Gambar Artikel</string>
+    <string name="image">Gambar</string>
+    <string name="description">Deskripsi</string>
+    <string name="link_to_tokopedia">LINK KE TOKOPEDIA</string>
+    <string name="favorite">Favorit</string>
+    <string name="detail">Detail</string>
+    <string name="result">Hasil</string>
+    <string name="question_1">Seperti apa PC yang akan kamu gunakan?</string>
+    <string name="information">Coba deskripsikan..</string>
+    <string name="information_">Informasi</string>
+    <string name="question_2">Berapa estimasi biaya yang akan kamu habiskan untuk PC-mu?</string>
+    <string name="choose_price">Pilih Harga</string>
+    <string name="submit">SUBMIT</string>
+    <string name="created_by">© C22-PS254</string>
+    <string name="skip">Lewati</string>
+    <string name="find_article">Temukan Artikel</string>
+    <string name="boarding_1">Temukan artikel menarik yang bisa menjadi referensimu dalam memilih komponen PC atau artikel menarik lainnya</string>
+    <string name="next">Selanjutnya</string>
+    <string name="personalize_recommendation">Rekomendasi Personal</string>
+    <string name="boarding_2">Rekomendasi komponen PC yang kamu butuhkan sesuai kebutuhan dan harga.</string>
+    <string name="back">Kembali</string>
+    <string name="start">Mulai</string>
+    <string name="find_pc_component">Cari Komponen PC</string>
+    <string name="boarding_3">Cari komponen yang kamu inginkan dan lihat detail spesifikasi dan harganya.</string>
+    <string name="no_data">Tidak ada data</string>
+    <string name="search_for_next">Cari jenis komponen untuk melanjutkan!</string>
+    <string name="upload_success">Personalize Berhasil Dikirim!</string>
+    <string name="continue_">Lanjut</string>
+    <string name="upload_failed">Upload Gagal</string>
+    <string name="brand">Brand :</string>
+    <string name="personalize_result">Hasil sesuai inputanmu:</string>
+
+
+    <!-- string-array for dropdown menu -->
+    <string-array name="price">
+        <item>800000</item>
+        <item>1000000</item>
+        <item>2000000</item>
+        <item>3000000</item>
+        <item>4000000</item>
+        <item>5000000</item>
+        <item>6000000</item>
+        <item>7000000</item>
+        <item>8000000</item>
+        <item>9000000</item>
+        <item>10000000</item>
+    </string-array>
+</resources>

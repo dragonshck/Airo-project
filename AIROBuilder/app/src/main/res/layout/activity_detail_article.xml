@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ArticleDetailActivity">
+
+    <ProgressBar
+        android:id="@+id/pb_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/iv_article_img"
+        android:layout_width="match_parent"
+        android:layout_height="310dp"
+        android:contentDescription="@string/image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:background="@drawable/bg_img"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tv_article_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_article_img"
+        tools:text="10 Cara Merakit Komputer Sendiri di Rumah, Sudah Coba?" />
+
+    <TextView
+        android:id="@+id/tv_article_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:textSize="12sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="6dp"
+        android:justificationMode="inter_word"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_article_title"
+        tools:text="Sahabat ingin tahu cara merakit komputer sendiri di rumah tetapi bingung harus bagaimana? Eits, tenang ya, karena sebenarnya Sahabat bisa merakit sebuah PC (personal computer) demi mendapatkan komputer idaman. Untuk mendapatkan PC idaman, terkadang membeli komputer lengkap yang langsung jadi dan siap pakai tidak cocok bagi sebagian orang. Itulah sebabnya, sebagian orang mencari cara merakit komputer sendiri di rumah.  Dengan mengetahui cara merakit komputer sendiri, maka Sahabat bisa jauh lebih puas untuk mendapatkan PC sesuai harapan. Sebab, cara merakit komputer dari awal hingga selesai membutuhkan persiapan yang cukup matang, mulai dari pemilihan komponen yang tepat, mendesain, dan lain sebagainya sampai sebuah komputer berfungsi sebagaimana mestinya.  Bagi Sahabat yang belum pernah mencoba cara merakit komputer, di artikel ini akan dijelaskan mengenai langkah-langkah yang bisa Sahabat lakukan dari awal. Yuk, simak perlengkapan yang perlu disiapkan dan cara merakit komputer dengan benar.  Cara Merakit Komputer Sendiri di Rumah Berikut ini beberapa cara merakit komputer sendiri di rumah yang bisa Sahabat lakukan, antara lain: " />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
